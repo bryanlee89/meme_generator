@@ -2,15 +2,27 @@ import React, { Component } from 'react';
 
 
 class MemeItem extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      hovered: false
+    }
+  }
   render(){
     return (
-      <div className="meme-item">
+      <div
+          className="meme-item"
+          onMouseEnter={() => this.setState({ hovered: true})}
+          onMouseLeave={() => this.setState({ hovered: false})}
+
+      >
         <img
-          className="meme-img"
+          className={this.state.hovered ? "meme-img darken-img" : "meme-img"}
           src={this.props.meme.url}
           alt={this.props.meme.name}
         />
-        <p className="meme-text">
+      <p className={ this.state.hovered ? "meme-text" : "no-text"}>
           {this.props.meme.name}
         </p>
       </div>
