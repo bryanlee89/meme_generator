@@ -1,4 +1,6 @@
 export const RECEIVE_MEMES = 'RECEIVE_MEMES';
+export const NEW_MEME = 'NEW_MEME';
+
 
 function receiveMemes(json) {
   const { memes } = json.data;
@@ -26,11 +28,18 @@ export function fetchMemes() {
     return fetch('http://api.imgflip.com/get_memes')
       .then(
         response => response.json(),
-        error => console.log('An error occured', error)
+        error => console.log('An  error occured', error)
         )
       .then(json =>
         // We can dispatch many times!
         // Here, we update the app state with the results of the API call
         dispatch(receiveMemes(json)))
+  }
+}
+
+export function newMeme(meme) {
+  return {
+    type: NEW_MEME,
+    meme
   }
 }
