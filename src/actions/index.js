@@ -27,7 +27,7 @@ export function fetchMemes() {
     // In this case, we return a promise to wait for.
     // This is not required by thunk middleware, but it is convenient for us.
 
-    return fetch('http://api.imgflip.com/get_memes')
+    return fetch('https://api.imgflip.com/get_memes')
       .then(
         response => response.json(),
         error => console.log('An  error occured', error)
@@ -53,8 +53,6 @@ function postMemeJson(params) {
   const bodyParams = Object.keys(params).map(key => {
     return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
   }).join('&');
-
-  console.log('bodyParams', bodyParams);
 
   return fetch('https://api.imgflip.com/caption_image', {
     method: "Post",

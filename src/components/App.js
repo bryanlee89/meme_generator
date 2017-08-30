@@ -24,8 +24,11 @@ class App extends Component {
     return (
       <div>
         <h2><u>Welcome to the Meme Generator!</u></h2>
+        <br></br>
         <MyMemes />
-        <h4><i>Write Some Text</i></h4>
+        <h4><i>1. Write some text</i></h4>
+        <h4><i>2. Click one of the memes below</i></h4>
+        <br></br>
         <Form inline>
           <FormGroup>
             <ControlLabel>Top</ControlLabel>
@@ -35,6 +38,7 @@ class App extends Component {
             >
             </FormControl>
           </FormGroup>
+
           <FormGroup>
             <ControlLabel>Bottom</ControlLabel>
             <FormControl
